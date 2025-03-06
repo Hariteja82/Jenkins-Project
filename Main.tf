@@ -31,14 +31,14 @@ resource "aws_security_group" "Project-SG" {
 
 
 resource "aws_instance" "web" {
-  ami                    = "ami-04b4f1a9cf54c11d0"
+  ami                    = "ami-02a53b0d62d37a757"
   instance_type          = "t2.large"
   key_name               = "jenkins"
   vpc_security_group_ids = [aws_security_group.Project-SG.id]
   user_data              = templatefile("./resource.sh", {})
 
   tags = {
-    Name = "Kastro"
+    Name = "Jenkins-Project"
   }
   root_block_device {
     volume_size = 30
